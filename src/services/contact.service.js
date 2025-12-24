@@ -1,4 +1,4 @@
-const API_URL = "http://portfolio-backend-production-99fb.up.railway.app/api/contact";
+const API_URL = "http://https://portfolio-backend-production-99fb.up.railway.app/api/contact";
 
 export async function sendContact(data) {
   const res = await fetch(API_URL, {

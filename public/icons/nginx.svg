@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <g fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Hexágono -->
+    <path d="M128 18 L214 68 V188 L128 238 L42 188 V68 Z"></path>
+    <!-- N minimal -->
+    <path d="M92 178 V78 L164 178 V78"></path>
+  </g>
+</svg>

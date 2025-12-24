@@ -1,0 +1,264 @@
+.projects {
+  padding: 4rem 5%;
+}
+
+.projects-header {
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.projects-header p {
+  color: var(--text-muted);
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+}
+
+/* LISTA */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.projects-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.project-item {
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: left;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.project-item small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.project-item.active {
+  border-color: var(--primary);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.arrow {
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+/* PANEL */
+.project-panel {
+  position: relative;
+}/* ===============================
+   PROJECT CARD (BASE)
+================================ */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===============================
+   MEDIA HEADER
+================================ */
+.project-media {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+/* image / video */
+.project-media img,
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* overlay adaptable */
+.project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /* DARK por defecto */
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.15),
+    rgba(2, 6, 23, 0.85)
+  );
+}
+
+/* LIGHT MODE: overlay más suave */
+body.light .project-media::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05),
+    rgba(248, 250, 252, 0.85)
+  );
+}
+
+/* ===============================
+   DEPLOY BADGE
+================================ */
+.project-status {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  color: #16a34a;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  backdrop-filter: blur(6px);
+
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+}
+
+body:not(.light) .project-status {
+  background: rgba(15, 23, 42, 0.75);
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.project-status .dot {
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+/* ===============================
+   TITLE OVER MEDIA
+================================ */
+.project-title-block {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  z-index: 3;
+}
+
+.project-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  color: var(--text-main);
+}
+
+/* Gradiente SOLO en dark */
+body:not(.light) .project-title {
+  background: linear-gradient(90deg, #ffffff, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ===============================
+   BODY CONTENT
+================================ */
+.project-body {
+  padding: 2.8rem;
+}
+
+.project-body h4 {
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.project-description {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* ===============================
+   TECH TAGS (SMART COLORS)
+================================ */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.tech {
+  font-size: 0.7rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-soft);
+}
+
+/* Dark + Light compatibles */
+.tech-android { color: #16a34a; }
+.tech-springboot { color: #22c55e; }
+.tech-azure { color: #2563eb; }
+.tech-mysql { color: #d97706; }
+.tech-nginx { color: #0d9488; }
+
+/* ===============================
+   ACTIONS
+================================ */
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+}

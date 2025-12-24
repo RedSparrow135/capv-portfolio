@@ -1,0 +1,26 @@
+.footer {
+  margin-top: 6rem;
+  padding: 2rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-logo {
+  color: var(--primary);
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-right a:hover {
+  color: var(--text-main);
+}

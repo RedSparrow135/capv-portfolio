@@ -1,0 +1,152 @@
+/* ===============================
+   HERO TECH CAROUSEL (PORTAL)
+   =============================== */
+
+.hero-tech-carousel {
+    transform: translateY(-50px);
+  position: relative;
+  width: 100%;
+  max-width: 520px; /* 🔥 carrusel corto */
+  overflow: hidden;
+
+  margin-top: 2.2rem;
+  padding: 0.6rem 0;
+
+  /* portal edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* ===============================
+   TRACK
+   =============================== */
+
+.hero-tech-track {
+  display: flex;
+  gap: 0.8rem;
+  width: max-content;
+
+  animation: tech-scroll 50s linear infinite;
+  will-change: transform;
+}
+
+.hero-tech-carousel:hover .hero-tech-track {
+  animation-play-state: paused;
+}
+
+/* ===============================
+   ITEM
+   =============================== */
+
+.hero-tech-item {
+  --tech-color: #3b82f6;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-main);
+
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ICON */
+.hero-tech-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* ===============================
+   COLOR EFFECT (FIJO Y VISIBLE)
+   =============================== */
+
+.hero-tech-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--tech-color);
+  box-shadow:
+    0 0 0 1px var(--tech-color),
+    0 0 18px rgba(0,0,0,0.4);
+}
+
+/* glow interno */
+.hero-tech-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    color-mix(in srgb, var(--tech-color) 40%, transparent),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.hero-tech-item:hover::after {
+  opacity: 1;
+}
+
+/* ===============================
+   PORTAL LINE (ENERGÍA)
+   =============================== */
+
+.hero-tech-carousel::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(56,189,248,0.8),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* ===============================
+   ANIMATION
+   =============================== */
+
+@keyframes tech-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+body.light .hero-tech-item img {
+  filter: 
+    invert(1)
+    sepia(1)
+    saturate(6)
+    hue-rotate(200deg);
+}

@@ -1,0 +1,1056 @@
+/* ===============================
+   ABOUT SECTION
+   =============================== */
+
+.about {
+  padding: 0rem 6%;
+  background: var(--bg-main);
+  color: var(--text-main);
+  overflow: visible; /* Asegura que las cartas no se corten aquí */
+  position: relative; /* Necesario para que la imagen absoluta se posicione respecto a esto */
+ 
+}
+/* ===============================
+   HEADER
+   =============================== */
+/* ===============================
+   ABOUT HEADER – PRO ANIMADO
+   =============================== */
+
+/* ===============================
+   ABOUT HEADER – VIVO / PRO
+   =============================== */
+
+.about-header {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+/* ===============================
+   EYEBROW (SHIMMER SUTIL)
+   =============================== */
+
+.about-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+
+  color: var(--primary);
+  opacity: 0.85;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    #7dd3fc,
+    var(--primary)
+  );
+  background-size: 200% 100%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: eyebrow-shimmer 6s ease-in-out infinite;
+}
+
+/* ===============================
+   TITLE (RESPIRACIÓN LUMINOSA)
+   =============================== */
+
+.about-header h2 {
+  font-size: 3rem;
+  margin-top: 0.6rem;
+  font-weight: 800;
+
+  color: var(--text-main);
+
+  text-shadow:
+    0 0 0 rgba(56, 189, 248, 0.0);
+
+  animation: title-breathe 7s ease-in-out infinite;
+}
+
+/* ===============================
+   LINE (PULSO CONSTANTE)
+   =============================== */
+
+.about-line {
+  position: relative;
+  width: 52px;
+  height: 3px;
+  margin-top: 1rem;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    #38bdf8,
+    var(--primary)
+  );
+
+  background-size: 200% 100%;
+  animation: line-flow 4.5s linear infinite;
+}
+
+/* glow */
+.about-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0.35;
+
+  animation: line-glow 3.5s ease-in-out infinite;
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+
+@keyframes eyebrow-shimmer {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+}
+
+@keyframes title-breathe {
+  0% {
+    text-shadow: 0 0 0 rgba(56, 189, 248, 0.0);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(56, 189, 248, 0.25);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(56, 189, 248, 0.0);
+  }
+}
+
+@keyframes line-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes line-glow {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+
+/* ===============================
+   HERO LAYOUT
+   =============================== */
+
+/* About.css */
+.about-hero {
+  display: grid;
+  /* Definimos un ancho fijo para la izquierda (ej. 500px) */
+  /* El resto (1fr) será para las habilidades */
+  grid-template-columns: 500px 1fr; 
+  gap: 4.5rem;
+  align-items: start;
+  /* IMPORTANTE: Permitir que las cartas sobresalgan sin mover el grid */
+  overflow: visible; 
+}
+/* ===============================
+   LEFT – INTRO
+   =============================== */
+
+/* Forzamos a que la intro sea un bloque rígido */
+.about-intro {
+  position: sticky;
+  top: 2rem;
+  width: 500px;
+  max-width: 550px; /* Límite estricto */
+  flex-shrink: 0;   /* Impide que se encoja */
+}
+/* ===============================
+   ABOUT TITLE – PRINCIPAL
+   =============================== */
+
+.about-title {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 2.2rem;
+
+  color: var(--text-main);
+
+  /* respiración muy sutil */
+  animation: about-title-breathe 8s ease-in-out infinite;
+}
+
+/* ===============================
+   SPAN DESTACADO (FLUJO TECH)
+   =============================== */
+
+.about-title span {
+  display: block;
+  margin-top: 0.35rem;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #2563eb,
+    #1d4ed8,
+    #38bdf8
+  );
+  background-size: 300% 100%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+
+  animation: about-title-flow 6s linear infinite;
+}
+
+/* glow controlado */
+.about-title span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: inherit;
+  filter: blur(26px);
+  opacity: 0.25;
+  z-index: -1;
+
+  animation: about-title-glow 6s ease-in-out infinite;
+}
+
+/* ===============================
+   MICRO INTERACCIÓN (HOVER)
+   =============================== */
+
+.about-title:hover span {
+  filter: brightness(1.15);
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+
+@keyframes about-title-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes about-title-breathe {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-title-glow {
+  0% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.18;
+  }
+}
+
+
+/* ===============================
+   PROFILE BLOCK
+   =============================== */
+
+/* ===============================
+   ABOUT PROFILE – IDENTIDAD VIVA
+   =============================== */
+
+.about-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 2.2rem;
+
+  /* flotación muy sutil */
+  animation: profile-float 7s ease-in-out infinite;
+}
+
+/* ===============================
+   AVATAR
+   =============================== */
+
+.about-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+filter: grayscale(100%) contrast(110%) brightness(95%);
+transition: all 0.4s ease-in-out;
+  /* halo técnico */
+  border: 2px solid rgba(56, 189, 248, 0.35);
+  box-shadow:
+    0 0 0 0 rgba(56, 189, 248, 0.0),
+    0 0 24px rgba(56, 189, 248, 0.25);
+
+  animation: avatar-pulse 6s ease-in-out infinite;
+}
+.about-avatar:hover {
+  /* 3. QUITAR FILTRO: Vuelve a su color original */
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+  
+  /* 4. EFECTO EXTRA: Un pequeño zoom y un resplandor de color (puedes cambiar el color) */
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); /* Un azul cian tecnológico */
+}
+/* glow secundario */
+.about-avatar::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.35),
+    transparent 65%
+  );
+}
+
+/* ===============================
+   TEXTO
+   =============================== */
+
+.about-profile h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.about-profile span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary);
+
+  /* shimmer sutil */
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    #7dd3fc,
+    var(--primary)
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: role-flow 8s linear infinite;
+}
+
+.about-profile p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  opacity: 0.9;
+}
+
+/* ===============================
+   MICRO INTERACCIÓN
+   =============================== */
+
+.about-profile:hover {
+  filter: brightness(1.05);
+}
+
+.about-profile:hover .about-avatar {
+  box-shadow:
+    0 0 0 4px rgba(56, 189, 248, 0.25),
+    0 0 36px rgba(56, 189, 248, 0.45);
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+
+@keyframes profile-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes avatar-pulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(56, 189, 248, 0.0),
+      0 0 18px rgba(56, 189, 248, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(56, 189, 248, 0.18),
+      0 0 32px rgba(56, 189, 248, 0.45);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(56, 189, 248, 0.0),
+      0 0 18px rgba(56, 189, 248, 0.25);
+  }
+}
+
+@keyframes role-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ===============================
+   DESCRIPTION
+   =============================== */
+
+.about-description {
+  max-width: 620px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 2.4rem;
+}
+
+/* ===============================
+   ACTIONS
+   =============================== */
+/* ===============================
+   ABOUT ACTIONS – CTA VIVO
+   =============================== */
+
+.about-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+
+  /* pulso muy sutil del grupo */
+  animation: actions-breathe 9s ease-in-out infinite;
+}
+
+/* ===============================
+   PRIMARY CTA
+   =============================== */
+
+.about-actions .btn-primary {
+  position: relative;
+
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #2563eb,
+    #1d4ed8
+  );
+  color: #fff;
+
+  box-shadow:
+    0 10px 30px rgba(37, 99, 235, 0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.15);
+
+  animation: primary-glow 6.5s ease-in-out infinite;
+}
+
+/* glow vivo */
+.about-actions .btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255,255,255,0.35),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* hover */
+.about-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 40px rgba(37, 99, 235, 0.5),
+    inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+
+.about-actions .btn-primary:hover::after {
+  opacity: 1;
+}
+
+/* ===============================
+   SECONDARY CTA
+   =============================== */
+
+.about-actions .btn-secondary {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+
+  animation: secondary-float 8s ease-in-out infinite;
+}
+
+.about-actions .btn-secondary:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* ===============================
+   CV LINK (DISCRETO PERO ACTIVO)
+   =============================== */
+
+.about-cv {
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+
+  padding-bottom: 2px;
+  margin-left: 0.3rem;
+
+  animation: cv-pulse 10s ease-in-out infinite;
+}
+
+/* underline animado */
+.about-cv::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary),
+    transparent
+  );
+
+  opacity: 0.4;
+}
+
+.about-cv:hover {
+  color: var(--primary);
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+
+@keyframes actions-breathe {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.03);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes primary-glow {
+  0% {
+    box-shadow:
+      0 10px 30px rgba(37, 99, 235, 0.25),
+      inset 0 0 0 1px rgba(255,255,255,0.12);
+  }
+  50% {
+    box-shadow:
+      0 16px 42px rgba(37, 99, 235, 0.5),
+      inset 0 0 0 1px rgba(255,255,255,0.25);
+  }
+  100% {
+    box-shadow:
+      0 10px 30px rgba(37, 99, 235, 0.25),
+      inset 0 0 0 1px rgba(255,255,255,0.12);
+  }
+}
+
+@keyframes secondary-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cv-pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+
+/* ===============================
+   RIGHT – PANELS
+   =============================== */
+/* ===============================
+   HERO LAYOUT - SOLUCIÓN FIJA
+   =============================== */
+
+.about-hero {
+  display: grid;
+  /* Mantenemos la izquierda fija y la derecha flexible */
+  grid-template-columns: minmax(300px, 550px) 1fr; 
+  gap: 4.5rem;
+  align-items: start;
+  /* ¡IMPORTANTE!: Quitamos cualquier overflow: hidden aquí */
+  overflow: visible; 
+}
+/* Forzamos a que la intro sea un bloque rígido */
+.about-intro {
+  position: sticky;
+  top: 2rem;
+  width: 100%;
+  max-width: 550px; /* Límite estricto */
+  flex-shrink: 0;   /* Impide que se encoja */
+}
+
+/* Contenedor de paneles derecho */
+.about-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 100%;
+  /* CAMBIO: Asegura que nada corte el movimiento de las cartas */
+  overflow: visible; 
+  position: relative;
+  animation: fadeInRight 0.8s ease-out;
+}
+.about-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+
+
+/* ===============================
+   HOVER / FOCUS
+   =============================== */
+
+.about-card:hover,
+.about-card:focus-visible {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.65),
+    0 0 32px color-mix(in srgb, var(--accent) 35%, transparent);
+  outline: none;
+}
+
+/* ===============================
+   ICONO SUPERIOR
+   =============================== */
+
+.card-icon {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+/* ===============================
+   TEXTO
+   =============================== */
+
+.about-card h5 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.4rem;
+  margin-bottom: 0.15rem;
+  color: #fff;
+}
+
+.card-subtitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.about-card p {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.78);
+  margin-top: 0.5rem;
+}
+
+/* ===============================
+   TAGS
+   =============================== */
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.card-tags span {
+  font-size: 0.6rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.85);
+}
+
+/* ===============================
+   MICRO GRAPH
+   =============================== */
+
+.card-micro-graph {
+  height: 12px;
+  margin-top: 0.6rem;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  opacity: 0.45;
+  border-radius: 6px;
+}
+
+/* ===============================
+   LINEA INFERIOR
+   =============================== */
+
+.card-border-line {
+  position: absolute;
+  inset: auto 1.2rem 0.8rem 1.2rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    transparent
+  );
+  opacity: 0.5;
+}
+
+/* ===============================
+   LIGHT MODE
+   =============================== */
+
+body.light .about-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.95),
+      rgba(255,255,255,0.75)
+    ),
+    radial-gradient(
+      ellipse at 120% -20%,
+      color-mix(in srgb, var(--accent) 25%, white),
+      transparent 65%
+    );
+
+  border: 1px solid rgba(0,0,0,0.08);
+
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.7);
+}
+
+body.light .about-card h5 {
+  color: #0f172a;
+}
+
+body.light .about-card p {
+  color: rgba(15,23,42,0.75);
+}
+
+body.light .card-tags span {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.12);
+  color: #0f172a;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 1200px) {
+  .about-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===============================
+   ENGINEERING FOCUS
+   =============================== */
+
+.about-focus {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 1.8rem;
+}
+
+.about-focus h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.about-focus ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-focus li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.about-focus strong {
+  color: var(--text-main);
+}
+
+/* ===============================
+   STACK SUMMARY
+   =============================== */
+
+.about-stack {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 1.8rem;
+}
+
+.about-stack h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-stack p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 900px) {
+  .about {
+    padding: 4rem 5%;
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.about-bg-gear {
+  position: absolute;
+  
+  /* 1. EL CAMBIO CLAVE: Usa un valor fijo en lugar de 50% */
+  /* Esto la ancla a una posición fija desde arriba, sin importar cuánto crezca la sección */
+  top: 350px;        /* Ajusta este número para subirla o bajarla a tu gusto */
+  right: 0;          /* Pegada a la derecha */
+  
+  /* 2. MANTENER EL EFECTO DE MITAD OCULTA */
+  /* Solo usamos translate en X para sacarla de la pantalla, el eje Y ya es fijo */
+  transform: translateX(50%); 
+  
+  /* 3. TAMAÑO Y ESTILO */
+  width: 900px;      
+  height: auto;
+  opacity: 0.04;     /* Un poco más sutil para que no distraiga */
+  pointer-events: none; 
+  z-index: 0;        /* Siempre detrás de todo */
+
+  /* 4. ANIMACIÓN LIMPIA */
+  /* Quitamos el translate del keyframe para que sea más estable */
+  animation: rotate-gear-independent 80s linear infinite;
+}
+
+/* Nueva animación simplificada */
+@keyframes rotate-gear-independent {
+  from {
+    /* Mantenemos la posición de la mitad fuera y rotamos */
+    transform: translateX(50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(50%) rotate(360deg);
+  }
+}
+.about-description-container.collapsed .about-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Número de líneas visibles al inicio */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}/* Estado Expandido */
+.about-description-container.expanded .about-description {
+  display: block; /* Muestra todo el texto */
+}
+
+/* Estilo para el botón de Ver más */
+.btn-read-more {
+  background: transparent;
+  border: none;
+  color: var(--card-color, #38bdf8); /* Usa el color de tu tema */
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.btn-read-more:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.title-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.title-dot.red {
+  background: #f43f5e; /* Rojo RedFlame */
+  box-shadow: 0 0 10px #f43f5e;
+}
+
+/* Contenedor de items de enfoque */
+.focus-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.focus-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+/* Efecto de luz al pasar el mouse por los principios */
+.focus-item:hover {
+  border-color: var(--primary);
+  transform: translateX(10px);
+  background: var(--bg-soft);
+}
+
+.focus-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.focus-content strong {
+  display: block;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.focus-content p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Animación de entrada para los paneles */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

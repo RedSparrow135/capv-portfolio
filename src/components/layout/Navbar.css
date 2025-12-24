@@ -1,0 +1,241 @@
+/* ================================
+   NAVBAR BASE
+   ================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  height: 72px;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--bg-nav);
+  backdrop-filter: blur(12px);
+transition: transform 0.35s ease, opacity 0.25s ease;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+/* ================================
+   IZQUIERDA / LOGO
+   ================================ */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+
+/* ================================
+   LINKS CENTRALES
+   ================================ */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--text-main);
+}
+
+/* ================================
+   ACCIONES DERECHA
+   ================================ */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ================================
+   TOGGLE DARK / LIGHT
+   ================================ */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+
+  background: var(--bg-card);
+  color: var(--text-main);
+
+  font-size: 0.95rem;
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
+}
+
+/* ================================
+   BOTÓN CTA
+   ================================ */
+.navbar-cta {
+  background: var(--primary);
+  color: white;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 0.55rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navbar-cta:hover {
+  background: var(--primary-light);
+}
+
+/* ================================
+   RESPONSIVE (MOBILE)
+   ================================ */
+@media (max-width: 900px) {
+  .navbar-links {
+    display: none;
+  }
+}
+/* ================================
+   NAVBAR HIDE ON SCROLL
+   ================================ */
+.navbar {
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+
+  /* 🔑 elimina la línea */
+  border-bottom-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+}
+/* ================================
+   NAVBAR LINKS (BUTTONS)
+   ================================ */
+.navbar-links button {
+  all: unset; /* 🔑 borra estilos default del button */
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+
+  position: relative;
+  padding: 0.25rem 0;
+
+  transition: color 0.2s ease;
+}
+
+/* hover */
+.navbar-links button:hover {
+  color: var(--text-main);
+}
+
+/* underline animado */
+.navbar-links button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--primary-light)
+  );
+
+  transition: width 0.25s ease;
+}
+
+.navbar-links button:hover::after {
+  width: 100%;
+}
+
+/* focus (accesibilidad) */
+.navbar-links button:focus-visible {
+  outline: none;
+  color: var(--text-main);
+}
+
+.navbar-links button:focus-visible::after {
+  width: 100%;
+}
+.navbar-links button.active {
+  color: var(--text-main);
+}
+
+.navbar-links button.active::after {
+  width: 100%;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.navbar-logo img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+.identity-toggle {
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text-muted);
+
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.identity-toggle:hover {
+  color: var(--text-main);
+}
+
+.identity-toggle.active {
+  background: var(--brand-gradient);
+  color: white;
+  border-color: transparent;
+}

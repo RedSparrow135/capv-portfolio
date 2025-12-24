@@ -1,0 +1,64 @@
+/* ============================= */
+/* DARK MODE (DEFAULT)           */
+/* ============================= */
+:root {
+  --bg-main: #0b1220;
+  --bg-nav: rgba(11, 18, 32, 0.9);
+  --bg-card: #0f172a;
+  --bg-soft: #020617;
+
+  --primary: #2563eb;
+  --primary-light: #38bdf8;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.04);
+
+  --radius: 14px;
+}
+
+/* ============================= */
+/* LIGHT MODE                    */
+/* ============================= */
+body.light {
+  --bg-main: #f8fafc;
+  --bg-nav: rgba(255, 255, 255, 0.9);
+  --bg-card: #ffffff;
+  --bg-soft: #f1f5f9;
+
+  --primary: #2563eb;
+  --primary-light: #1d4ed8;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --grid-line: rgba(0, 0, 0, 0.04);
+}
+/* ============================= */
+/* IDENTIDAD PERSONAL (DEFAULT)  */
+/* ============================= */
+body.identity-personal {
+  --brand-gradient: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--primary-light)
+  );
+}
+
+/* ============================= */
+/* REDSPARROW – DAWN PALETTE 🔥  */
+/* ============================= */
+body.identity-redsparrow {
+  --primary: #dc2626;        /* rojo amanecer */
+  --primary-light: #fb923c; /* naranja alba */
+
+  --brand-gradient: linear-gradient(
+    90deg,
+    #dc2626,
+    #fb923c,
+    #facc15
+  );
+}

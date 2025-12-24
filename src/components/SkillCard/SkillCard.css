@@ -1,0 +1,188 @@
+/* SkillCard.css */
+
+.skills-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  width: 100%; 
+}
+
+.skills-row {
+  display: flex;
+  justify-content: flex-start; 
+  min-width: 650px; 
+  padding: 40px 0;    
+  overflow: visible;
+  gap: 10px; /* <--- Cambia este número para dar más o menos espacio */
+}
+
+/* --- CONTENEDOR ESTABLE (HITBOX) --- */
+.skill-card-container {
+  position: relative;
+  /* Estado inicial: contraído */
+  flex: 0 0 110px; 
+  height: 230px;
+  margin-right: -30px; /* Solapado inicial */
+  z-index: 1;
+  
+  /* Transición suave del ancho para que empuje a los demás */
+ transition: 
+    flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+    height 0.6s cubic-bezier(0.16, 1, 0.3, 1), /* <-- Nuevo */
+    margin 0.6s ease;
+    
+  will-change: flex, height, margin; /* <-- Nuevo */
+}
+
+/* Cuando el mouse entra al contenedor, subimos el nivel de la tarjeta */
+.skill-card-container:hover {
+  /* Al crecer el flex-basis, empuja a las tarjetas de la derecha */
+  flex: 0 0 300px; 
+  margin-right: 20px; /* Crea un espacio extra al abrirse */
+  height: 350px;
+  z-index: 100;
+}
+/* --- TARJETA VISUAL --- */
+.skill-card {
+  position: relative; /* Cambiado de absolute a relative para que respete el tamaño del padre */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(165deg, rgba(15, 23, 42, 0.9), rgba(8, 12, 24, 1));
+  backdrop-filter: blur(12px); 
+  border-radius: 24px;
+  padding: 25px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  
+  transition: 
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s ease;
+  
+  transform: translateZ(0);
+}
+
+/* --- ESTADO HOVER (Activado por el Container) --- */
+.skill-card-container:hover .skill-card {
+  transform: translateY(-15px);
+  background: rgba(10, 15, 28, 0.98);
+  border: 1px solid var(--card-color);
+}
+/* --- TÍTULO (Arreglo de Salto de Línea) --- */
+.skill-card-title {
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  white-space: normal; /* Permite que el texto baje al siguiente renglón */
+  overflow-wrap: break-word; /* Rompe palabras si son demasiado largas */
+}
+
+/* --- BACKLIGHT Y EFECTOS --- */
+.skill-card-backlight {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle at 50% 0%, 
+    color-mix(in srgb, var(--card-color) 25%, transparent), 
+    color-mix(in srgb, var(--card-color-secondary) 15%, transparent) 80%
+  );
+  filter: blur(30px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.skill-card-container:hover .skill-card-backlight { 
+  opacity: 1; 
+}
+
+.skill-card::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--card-color), var(--card-color-secondary));
+  box-shadow: 0 0 15px var(--card-color); z-index: 10;
+}
+
+.skill-card-dots {
+  position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 12px 12px; opacity: 0.12; z-index: 0;
+}
+
+/* --- CONTENIDO INTERNO --- */
+.skill-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.skill-badge {
+  font-size: 9px;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.skill-card-subtitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.skill-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--card-color), transparent);
+  margin: 15px 0;
+  opacity: 0.6;
+}
+
+.skill-desc {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.skill-card-container:hover .skill-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 15px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+}
+
+.skill-card-container:hover .skill-tags-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-tag {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+

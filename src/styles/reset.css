@@ -1,0 +1,67 @@
+/* =========================================
+   CSS RESET PROFESIONAL
+   ========================================= */
+
+/* Box sizing consistente */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML y Body base */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/* Body base */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Imágenes y medios */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Formularios */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Botones */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Evita overflow horizontal accidental */
+body {
+  overflow-x: hidden;
+}

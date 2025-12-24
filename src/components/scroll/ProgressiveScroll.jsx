@@ -54,6 +54,29 @@ export default function ProgressiveScroll({ children, onNavbarToggle }) {
     setScroll(target);
   };
 
+
+
+const fullReset = (index = 0) => {
+  // 🔒 bloquear scroll real
+  setFreeScroll(false);
+
+  // 🧹 limpiar offsets internos
+  setAboutOffset(0);
+  setExperienceOffset(0);
+  setProjectsOffset(0);
+
+  // 🧹 reset scroll real
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+  // 🧹 reset scroll virtual
+  const target = index * GAP;
+  scrollRef.current = target;
+  setScroll(target);
+};
+
+
+
+
   // =============================
   // UTILS
   // =============================
@@ -183,8 +206,9 @@ export default function ProgressiveScroll({ children, onNavbarToggle }) {
 
       // 🔒 VOLVER A VIRTUAL LIMPIO
       if (currentY <= 10) {
-        resetToVirtualScroll(CONTACT_INDEX);
-      }
+  fullReset(CONTACT_INDEX);
+}
+
 
       lastY = currentY;
     };
@@ -199,7 +223,8 @@ export default function ProgressiveScroll({ children, onNavbarToggle }) {
   useEffect(() => {
     const onNavigate = (e) => {
       const index = e.detail;
-      resetToVirtualScroll(index);
+      fullReset(index);
+
     };
 
     window.addEventListener("progressive:navigate", onNavigate);
@@ -207,33 +232,20 @@ export default function ProgressiveScroll({ children, onNavbarToggle }) {
       window.removeEventListener("progressive:navigate", onNavigate);
   }, []);
 
+
+
+  
+  useEffect(() => {
+  fullReset(0);
+}, []);
+
+
   // =============================
   // RENDER
   // =============================
   return (
     <>
-      {/* ================= DEBUG HUD ================= */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: 12,
-          right: 12,
-          zIndex: 9999,
-          background: "rgba(0,0,0,0.75)",
-          color: "#00ffcc",
-          fontSize: 12,
-          padding: "10px 12px",
-          borderRadius: 8,
-          fontFamily: "monospace",
-          lineHeight: 1.4,
-          pointerEvents: "none",
-        }}
-      >
-        <div><strong>DEBUG SCROLL</strong></div>
-        <div>scrollRef: {scrollRef.current.toFixed(3)}</div>
-        <div>scroll(state): {scroll.toFixed(3)}</div>
-        <div>freeScroll: {String(freeScroll)}</div>
-      </div>
+     
 
       {/* ================= CONTENIDO ================= */}
       <div className="progressive-root">

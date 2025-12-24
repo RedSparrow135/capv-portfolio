@@ -4,6 +4,13 @@ import SkillGrid from '../SkillCard/SkillGrid'
 import { skillsPrimary } from '../../data/skillsData/skillsPrimary.js'
 import { skillsSecondary } from '../../data/skillsData/skillsSecondary.js'
 
+
+
+const go = (index) => {
+  window.dispatchEvent(
+    new CustomEvent('progressive:navigate', { detail: index })
+  )
+}
 export default function About() {
   // 2. Estado para controlar la expansión
   const [isExpanded, setIsExpanded] = useState(false);
@@ -75,9 +82,9 @@ export default function About() {
           </button>
 
           <div className="about-actions">
-            <button className="btn-primary">Explorar Proyectos</button>
-            <button className="btn-secondary">Contactar Ahora</button>
-            <a className="about-cv" href="/cv.pdf" target="_blank">
+            <button className="btn-primary" onClick={() => go(3)}>Explorar Proyectos</button>
+            <button className="btn-secondary"onClick={() => go(4)}>Contactar Ahora</button>
+            <a className="about-cv" href="/cv/CV-2025-Carlos Alonso Picho Vargas (11_2025) -1.pdf" target="_blank">
               Ver CV en PDF
             </a>
           </div>

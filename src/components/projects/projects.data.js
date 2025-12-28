@@ -19,27 +19,34 @@ export const projects = [
   },
 
   {
-    id: "devops",
-    short: "DevOps Manager",
-    title: "DevOps Manager",
-    subtitle: "Orquestación y monitoreo CI/CD",
-    status: "EN DESARROLLO",
-    stack: ["Terraform", "Docker", "Azure DevOps", ".NET 8", "WPF"],
-    description: [
-      "Automatización de pipelines CI/CD.",
-      "Monitoreo de despliegues en tiempo real.",
-      "Infraestructura como código.",
-      "Dashboard de control de proyectos y entornos."
-    ],
-    media: {
-      type: "video",
-      src: "/mockups/devops-demo.mp4",
-    },
-    actions: {
-      demo: false,
-      repo: true,
-    },
+  id: "devops",
+  short: "DevOps Manager",
+  title: "DevOps Manager",
+  subtitle: "Plataforma de gestión y control DevOps",
+  status: "EN DESARROLLO",
+  stack: [
+    "Azure",
+    "VPN",
+    "Electron",
+    "Node.js",
+    "React",
+    "Linux",
+    "Ubuntu",
+    "Docker",
+    "GitHub"
+  ],
+  longDescription:
+    "DevOps Manager es una plataforma diseñada para centralizar la gestión de entornos, despliegues y proyectos DevOps desde una única interfaz. Construida con Electron y React para el frontend, y Node.js como backend, permite administrar servicios desplegados en servidores Linux (Ubuntu) sobre Azure, integrando Docker para la gestión de contenedores y GitHub como eje del control de versiones. El sistema está pensado para operar en entornos protegidos mediante VPN, priorizando seguridad, control y escalabilidad en infraestructuras cloud.",
+  media: {
+    type: "video",
+    src: "/mockups/devops-demo.mp4"
   },
+  actions: {
+    demo: false,
+    repo: true
+  }
+},
+
 
   {
     id: "batimusic",

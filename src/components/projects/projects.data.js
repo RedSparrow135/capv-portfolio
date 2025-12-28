@@ -26,7 +26,8 @@ export const projects = [
   status: "EN DESARROLLO",
   stack: [
     "Azure",
-    "VPN",
+    "VM",
+    "VPS",
     "Electron",
     "Node.js",
     "React",

@@ -227,31 +227,53 @@ body:not(.light) .project-title {
   background: var(--bg-soft);
   border: 1px solid var(--border-soft);
 }
+/* ===============================
+   MOBILE / ANDROID
+   =============================== */
+.tech-android { color: #16a34a; }        /* Android green */
+.tech-java { color: #f97316; }           /* Java orange */
 
-/* Dark + Light compatibles */
-.tech-android { color: #16a34a; }
-.tech-springboot { color: #22c55e; }
-.tech-mysql { color: #d97706; }
-.tech-nginx { color: #0d9488; }
+/* ===============================
+   BACKEND / FRAMEWORKS
+   =============================== */
+.tech-spring-boot { color: #22c55e; }    /* Spring Boot green */
+.tech-node-js { color: #22c55e; }         /* Node.js green */
+.tech-discord-js { color: #5865f2; }      /* Discord brand */
+.tech-ffmpeg { color: #10b981; }          /* Media processing */
 
-/* Dark + Light compatibles */
+/* ===============================
+   FRONTEND / DESKTOP
+   =============================== */
+.tech-react { color: #61dafb; }           /* React cyan */
+.tech-electron { color: #38bdf8; }        /* Electron blue */
 
-/* Cloud / Infra */
-.tech-azure { color: #2563eb; }      /* Azure blue */
-.tech-vpn { color: #7c3aed; }        /* Purple security */
-.tech-docker { color: #0ea5e9; }     /* Docker blue */
-.tech-github { color: #e5e7eb; }     /* Neutral light */
+/* ===============================
+   CLOUD / INFRA
+   =============================== */
+.tech-azure { color: #2563eb; }           /* Azure blue */
+.tech-cloud-vm { color: #3b82f6; }        /* Cloud VM */
+.tech-vm { color: #6366f1; }               /* Virtual Machine */
+.tech-vps { color: #4f46e5; }              /* VPS */
+.tech-docker { color: #0ea5e9; }           /* Docker */
+.tech-nginx { color: #0d9488; }            /* Nginx */
+.tech-mysql { color: #d97706; }            /* MySQL */
 
-/* OS */
-.tech-linux { color: #facc15; }      /* Linux yellow */
-.tech-ubuntu { color: #f97316; }     /* Ubuntu orange */
+/* ===============================
+   OS / SYSTEM
+   =============================== */
+.tech-linux { color: #facc15; }            /* Linux yellow */
+.tech-ubuntu { color: #f97316; }           /* Ubuntu orange */
 
-/* Frontend */
-.tech-react { color: #61dafb; }      /* React cyan */
-.tech-electron { color: #38bdf8; }   /* Electron blue */
+/* ===============================
+   DEVOPS / VERSIONING
+   =============================== */
+.tech-github { color: #e5e7eb; }            /* GitHub neutral */
 
-/* Backend */
-.tech-node { color: #22c55e; }        /* Node.js green */
+/* ===============================
+   MEDIA / STREAMING
+   =============================== */
+.tech-youtube { color: #ff0000; }           /* YouTube red */
+.tech-spotify { color: #1db954; }           /* Spotify green */
 
 
 /* ===============================

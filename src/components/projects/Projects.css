@@ -231,9 +231,28 @@ body:not(.light) .project-title {
 /* Dark + Light compatibles */
 .tech-android { color: #16a34a; }
 .tech-springboot { color: #22c55e; }
-.tech-azure { color: #2563eb; }
 .tech-mysql { color: #d97706; }
 .tech-nginx { color: #0d9488; }
+
+/* Dark + Light compatibles */
+
+/* Cloud / Infra */
+.tech-azure { color: #2563eb; }      /* Azure blue */
+.tech-vpn { color: #7c3aed; }        /* Purple security */
+.tech-docker { color: #0ea5e9; }     /* Docker blue */
+.tech-github { color: #e5e7eb; }     /* Neutral light */
+
+/* OS */
+.tech-linux { color: #facc15; }      /* Linux yellow */
+.tech-ubuntu { color: #f97316; }     /* Ubuntu orange */
+
+/* Frontend */
+.tech-react { color: #61dafb; }      /* React cyan */
+.tech-electron { color: #38bdf8; }   /* Electron blue */
+
+/* Backend */
+.tech-node { color: #22c55e; }        /* Node.js green */
+
 
 /* ===============================
    ACTIONS

@@ -9,8 +9,8 @@ export const projects = [
     longDescription:
       "Solución integral diseñada para optimizar la gestión de activos empresariales. Arquitectura desacoplada con app nativa en Java y API REST en Spring Boot, desplegada en Azure con servidor Linux y proxy Nginx.",
     media: {
-      type: "image",
-      src: "/mockups/inventario.png",
+      type: "video",
+      src: "/mockups/inventario.mp4",
     },
     actions: {
       demo: "#",

@@ -39,8 +39,8 @@ export const projects = [
   longDescription:
     "DevOps Manager es una plataforma diseñada para centralizar la gestión de entornos, despliegues y proyectos DevOps desde una única interfaz. Construida con Electron y React para el frontend, y Node.js como backend, permite administrar servicios desplegados en servidores Linux (Ubuntu) sobre Azure, integrando Docker para la gestión de contenedores y GitHub como eje del control de versiones. El sistema está pensado para operar en entornos protegidos mediante VPN, priorizando seguridad, control y escalabilidad en infraestructuras cloud.",
   media: {
-    type: "video",
-    src: "/mockups/devops-demo.mp4"
+    type: "image",
+    src: "/mockups/DevOpsManager.png"
   },
   actions: {
     demo: false,

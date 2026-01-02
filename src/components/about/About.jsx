@@ -15,7 +15,15 @@ const go = (index) => {
     new CustomEvent("progressive:navigate", { detail: index })
   );
 };
+const goTo = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
 
+  el.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 export default function About() {
   const { ref, isInView } = useAppleReveal();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -99,10 +107,10 @@ export default function About() {
           </motion.button>
 
           <motion.div className="about-actions" variants={appleItem}>
-            <button className="btn-primary" onClick={() => go(3)}>
+            <button className="btn-primary" onClick={() => goTo('projects')}>
               Explorar Proyectos
             </button>
-            <button className="btn-secondary" onClick={() => go(4)}>
+            <button className="btn-secondary" onClick={() => goTo('contact')}>
               Contactar Ahora
             </button>
             <a

@@ -91,6 +91,8 @@ const { ref, isInView } = useScrollReveal();
                 className="experience-link"
                 whileHover={{ x: 6 }}
                 whileTap={{ scale: 0.95 }}
+                 href="/cv/CV-2025-Carlos Alonso Picho Vargas (11_2025) -1.pdf"
+              target="_blank"
               >
                 Ver currículum completo →
               </motion.a>

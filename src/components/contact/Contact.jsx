@@ -43,7 +43,7 @@ export default function Contact({ onBack }) {
   };
 
   return (
-    <section className="contact-section contact-normal">
+    <section id="contact" className="contact-section contact-normal">
       {/* BOTÓN VOLVER (solo si viene del motor) */}
       {onBack && (
         <button className="contact-back" onClick={onBack}>

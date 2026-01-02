@@ -1,48 +1,56 @@
-import React, { useState } from 'react'; // 1. Importar useState
-import './About.css'
-import SkillGrid from '../SkillCard/SkillGrid'
-import { skillsPrimary } from '../../data/skillsData/skillsPrimary.js'
-import { skillsSecondary } from '../../data/skillsData/skillsSecondary.js'
-
-
+import React, { useState } from "react";
+import "./About.css";
+import SkillGrid from "../SkillCard/SkillGrid";
+import { skillsPrimary } from "../../data/skillsData/skillsPrimary.js";
+import { motion } from "framer-motion";
+import { useAppleReveal } from "../../hooks/useAppleReveal";
+import {
+  appleContainer,
+  appleItem,
+  appleItemRight,
+} from "../../animations/appleReveal";
 
 const go = (index) => {
   window.dispatchEvent(
-    new CustomEvent('progressive:navigate', { detail: index })
-  )
-}
+    new CustomEvent("progressive:navigate", { detail: index })
+  );
+};
+
 export default function About() {
-  // 2. Estado para controlar la expansión
+  const { ref, isInView } = useAppleReveal();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleReadMore = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
-    <section className="about">
-      <img 
-        src="/img/tuerca.png" 
-        className="about-bg-gear" 
-        alt="" 
-      />
-      
+    <motion.section
+      id="about"
+      ref={ref}
+      className="about"
+      variants={appleContainer}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      {/* BACKGROUND */}
+      <img src="/img/tuerca.png" className="about-bg-gear" alt="" />
+
       {/* HEADER */}
-      <div className="about-header">
+      <motion.div className="about-header" variants={appleItem}>
         <span className="about-eyebrow">PERFIL PROFESIONAL</span>
         <h2>Sobre Mí</h2>
         <div className="about-line" />
-      </div>
+      </motion.div>
 
       <div className="about-hero">
         {/* IZQUIERDA */}
-        <div className="about-intro">
-          <h3 className="about-title">
+        <motion.div
+          className="about-intro"
+          variants={appleContainer}
+        >
+          <motion.h3 className="about-title" variants={appleItem}>
             Ingeniería de Sistemas:
             <span> Arquitectura, Automatización y Escala</span>
-          </h3>
+          </motion.h3>
 
-          <div className="about-profile">
+          <motion.div className="about-profile" variants={appleItem}>
             <img
               className="about-avatar"
               src="/img/image_perfil.jpg"
@@ -53,14 +61,19 @@ export default function About() {
               <span>Ingeniero de Sistemas</span>
               <p>Backend · Cloud · DevOps · Android · Azure</p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* 3. Lógica de la descripción con clase dinámica */}
-          <div className={`about-description-container ${isExpanded ? 'expanded' : 'collapsed'}`}>
+          <motion.div
+            className={`about-description-container ${
+              isExpanded ? "expanded" : "collapsed"
+            }`}
+            variants={appleItem}
+          >
             <p className="about-description">
-              Profesional en tecnologías de la información con enfoque en 
-              <strong> Backend Engineering</strong>, <strong>Cloud Computing</strong> y 
-              <strong> automatización DevOps</strong>. Me especializo en diseñar arquitecturas 
+              Profesional en tecnologías de la información con enfoque en{" "}
+              <strong>Backend Engineering</strong>,{" "}
+              <strong>Cloud Computing</strong> y{" "}
+              <strong>automatización DevOps</strong>. Me especializo en diseñar arquitecturas 
               estables, seguras y escalables, integrando servicios bien estructurados, APIs 
               robustas y modelos de despliegue optimizados. Mi trabajo se basa en principios de 
               arquitectura limpia, buenas prácticas, calidad de código y una comprensión profunda 
@@ -74,67 +87,59 @@ export default function About() {
               siempre un enfoque orientado a confiabilidad, seguridad y escalabilidad real en 
               entornos productivos.
             </p>
-          </div>
 
-          {/* 4. Botón de Ver más / Ver menos */}
-          <button className="btn-read-more" onClick={toggleReadMore}>
-            {isExpanded ? 'Ver menos ↑' : 'Ver más ↓'}
-          </button>
+          </motion.div>
 
-          <div className="about-actions">
-            <button className="btn-primary" onClick={() => go(3)}>Explorar Proyectos</button>
-            <button className="btn-secondary"onClick={() => go(4)}>Contactar Ahora</button>
-            <a className="about-cv" href="/cv/CV-2025-Carlos Alonso Picho Vargas (11_2025) -1.pdf" target="_blank">
+          <motion.button
+            className="btn-read-more"
+            onClick={() => setIsExpanded(!isExpanded)}
+            variants={appleItem}
+          >
+            {isExpanded ? "Ver menos ↑" : "Ver más ↓"}
+          </motion.button>
+
+          <motion.div className="about-actions" variants={appleItem}>
+            <button className="btn-primary" onClick={() => go(3)}>
+              Explorar Proyectos
+            </button>
+            <button className="btn-secondary" onClick={() => go(4)}>
+              Contactar Ahora
+            </button>
+            <a
+              className="about-cv"
+              href="/cv/CV-2025-Carlos Alonso Picho Vargas (11_2025) -1.pdf"
+              target="_blank"
+            >
               Ver CV en PDF
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* DERECHA */}
-        {/* DERECHA: Paneles de Control */}
-<div className="about-panels">
-  <div className="panels-section">
-    <h4 className="about-section-title">
-      <span className="title-dot" /> Fortalezas Técnicas Clave
-    </h4>
-    <div className="grid-container">
-      <SkillGrid skills={skillsPrimary} variant="primary" />
-    </div>
-  </div>
+        <motion.div
+          className="about-panels"
+          variants={appleItemRight}
+        >
+          <div className="panels-section">
+            <h4 className="about-section-title">
+              <span className="title-dot" /> Fortalezas Técnicas Clave
+            </h4>
+            <SkillGrid skills={skillsPrimary} variant="primary" />
+          </div>
 
-  <div className="about-focus">
-    <h4 className="about-section-title">
-       <span className="title-dot red" /> Mi Enfoque de Ingeniería
-    </h4>
-    
-    <div className="focus-cards-container">
-      <div className="focus-item">
-        <div className="focus-icon">📐</div>
-        <div className="focus-content">
-          <strong>Diseño sólido</strong>
-          <p>Pensar antes de codificar.</p>
-        </div>
-      </div>
+          <div className="about-focus">
+            <h4 className="about-section-title">
+              <span className="title-dot red" /> Mi Enfoque de Ingeniería
+            </h4>
 
-      <div className="focus-item">
-        <div className="focus-icon">✨</div>
-        <div className="focus-content">
-          <strong>Clean Code</strong>
-          <p>Mantenible y escalable.</p>
-        </div>
+            <div className="focus-cards-container">
+              <div className="focus-item">📐 Diseño sólido</div>
+              <div className="focus-item">✨ Clean Code</div>
+              <div className="focus-item">🚀 Optimización</div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-
-      <div className="focus-item">
-        <div className="focus-icon">🚀</div>
-        <div className="focus-content">
-          <strong>Optimización</strong>
-          <p>Refactorización continua.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
-    </section>
-  )
+    </motion.section>
+  );
 }

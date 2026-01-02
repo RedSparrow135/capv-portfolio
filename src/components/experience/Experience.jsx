@@ -1,13 +1,24 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { experiences } from "./experience.data";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
+
 import "./Experience.css";
 
 export default function Experience() {
   const [active, setActive] = useState(0);
   const exp = experiences[active];
+const { ref, isInView } = useScrollReveal();
 
   return (
+    <motion.section
+  id="experience"
+  ref={ref}
+  className="experience"
+  initial={{ opacity: 0, y: 32 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.45, ease: "easeOut" }}
+>
     <section className="experience">
       <header className="experience-header">
         <span className="experience-eyebrow">Trayectoria</span>
@@ -88,5 +99,6 @@ export default function Experience() {
         </div>
       </div>
     </section>
+    </motion.section>
   );
 }

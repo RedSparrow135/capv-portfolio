@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Navbar.css'
 
-export default function Navbar({ hidden }) {
+export default function Navbar({ hidden , atTop }) {
   const [theme, setTheme] = useState('dark')
   const [identity, setIdentity] = useState('personal') // 👈 NUEVO
 
@@ -27,17 +27,21 @@ export default function Navbar({ hidden }) {
     setIdentity(prev => (prev === 'personal' ? 'dev' : 'personal'))
   }
 
-  const go = (index) => {
-    window.dispatchEvent(
-      new CustomEvent('progressive:navigate', { detail: index })
-    )
-  }
+const goTo = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 
   return (
-    <header className={`navbar ${hidden ? 'navbar-hidden' : ''}`}>
+    <header className={`navbar ${hidden ? 'navbar-hidden' : ''} ${atTop ? 'navbar-top' : 'navbar-scrolled'}`}>
       {/* LOGO */}
       <div className="navbar-left">
-        <div className="navbar-logo" onClick={() => go(0)}>
+        <div className="navbar-logo"  onClick={() => goTo('hero')}>
           {identity === 'dev' ? (
             <>
               <img src="/logo-redsparrow.png" alt="RedSparrow" />
@@ -54,22 +58,22 @@ export default function Navbar({ hidden }) {
 
       {/* LINKS */}
       <nav className="navbar-links">
-        <button onClick={() => go(1)}>Sobre mí</button>
-        <button onClick={() => go(2)}>Experiencia</button>
-        <button onClick={() => go(3)}>Proyectos</button>
+        <button onClick={() => goTo('about')}>Sobre mí</button>
+        <button onClick={() => goTo('experience')}>Experiencia</button>
+        <button onClick={() => goTo('projects')}>Proyectos</button>
       </nav>
 
       {/* ACTIONS */}
       <div className="navbar-actions">
         {/* MODO DEV */}
-        <button
+       { /*<button
           className={`identity-toggle ${
             identity === 'dev' ? 'active' : ''
           }`}
           onClick={toggleIdentity}
         >
           {identity === 'dev' ? 'DEV MODE' : 'PERSONAL'}
-        </button>
+        </button>*/}
 
         {/* THEME */}
         <button
@@ -80,8 +84,8 @@ export default function Navbar({ hidden }) {
           {theme === 'dark' ? '☀︎' : '☾'}
         </button>
 
-        <button className="navbar-cta" onClick={() => go(4)}>
-          Contrátame
+        <button className="navbar-cta" onClick={() => goTo('contact')}>
+          Contactame
         </button>
       </div>
     </header>

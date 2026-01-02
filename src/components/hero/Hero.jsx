@@ -14,7 +14,7 @@ const go = (index) => {
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section id="hero" className="hero">
 
       {/* GRID BACKGROUND */}
       <div className="hero-grid" />

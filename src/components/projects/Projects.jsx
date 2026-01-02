@@ -3,12 +3,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "./projects.data";
 import ProjectCard from "./ProjectCard";
 
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 import "./Projects.css";
 
 export default function Projects() {
   const [active, setActive] = useState(0);
-
+const { ref, isInView } = useScrollReveal();
   return (
+    
+<motion.section
+id="projects"
+  ref={ref}
+  className="projects"
+  initial={{ opacity: 0, y: 36 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+>
     <section className="projects">
       <header className="projects-header">
         <h2>Proyectos Destacados</h2>
@@ -48,5 +58,6 @@ export default function Projects() {
         </div>
       </div>
     </section>
+    </motion.section>
   );
 }

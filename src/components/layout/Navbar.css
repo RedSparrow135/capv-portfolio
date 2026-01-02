@@ -19,6 +19,29 @@ transition: transform 0.35s ease, opacity 0.25s ease;
   border-bottom: 1px solid var(--border-soft);
 }
 
+
+
+/* =========================
+   TOP → TRANSPARENTE
+========================= */
+.navbar-top {
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+/* =========================
+   SCROLLED → BLUR
+========================= */
+.navbar-scrolled {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+
+
 /* ================================
    IZQUIERDA / LOGO
    ================================ */

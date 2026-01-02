@@ -44,7 +44,7 @@ const goTo = (id) => {
         <div className="navbar-logo"  onClick={() => goTo('hero')}>
           {identity === 'dev' ? (
             <>
-              <img src="/logo-redsparrow.png" alt="RedSparrow" />
+              <img src="/logo.png" alt="RedSparrow" />
               <span>RedSparrow</span>
             </>
           ) : (

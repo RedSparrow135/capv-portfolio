@@ -17,6 +17,57 @@
   --grid-line: rgba(255, 255, 255, 0.04);
 
   --radius: 14px;
+  --skill-card-bg: linear-gradient(
+    165deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(8, 12, 24, 1)
+  );
+
+  --skill-card-bg-hover: rgba(10, 15, 28, 0.98);
+
+  --skill-card-border: rgba(255, 255, 255, 0.08);
+  --skill-card-text: #ffffff;
+  --skill-card-muted: #94a3b8;
+
+  --skill-tag-bg: rgba(255, 255, 255, 0.05);
+  --skill-tag-border: rgba(255, 255, 255, 0.1);
+  --skill-dot-color: rgba(255, 255, 255, 0.05);
+
+
+  /* ============================= */
+/* NAVBAR TOKENS                 */
+/* ============================= */
+
+
+--nav-height: 72px;
+
+  --nav-bg: var(--bg-nav);
+  --nav-bg-scrolled: rgba(15, 23, 42, 0.75);
+  --nav-bg-top: transparent;
+
+  --nav-blur: blur(14px);
+  --nav-border: var(--border-soft);
+
+  --nav-text: var(--text-muted);
+  --nav-text-hover: var(--text-main);
+
+  --nav-cta-bg: var(--primary);
+  --nav-cta-bg-hover: var(--primary-light);
+
+
+  /* ============================= */
+/* ABOUT TOKENS                  */
+/* ============================= */
+   --about-eyebrow-opacity: 0.85;
+  --about-line-opacity: 0.6;
+
+  --about-title-glow: rgba(56, 189, 248, 0.25);
+  --about-avatar-glow: rgba(56, 189, 248, 0.45);
+
+  --about-card-bg: var(--bg-card);
+  --about-card-bg-hover: var(--bg-soft);
+
+  --about-muted: var(--text-muted);
 }
 
 /* ============================= */
@@ -36,6 +87,35 @@ body.light {
 
   --border-soft: rgba(0, 0, 0, 0.08);
   --grid-line: rgba(0, 0, 0, 0.04);
+
+
+  --skill-card-bg: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(241, 245, 249, 1)
+  );
+
+  --skill-card-bg-hover: #ffffff;
+
+  --skill-card-border: rgba(0, 0, 0, 0.08);
+  --skill-card-text: #0f172a;
+  --skill-card-muted: #475569;
+
+  --skill-tag-bg: rgba(0, 0, 0, 0.04);
+  --skill-tag-border: rgba(0, 0, 0, 0.12);
+  --skill-dot-color: rgba(0, 0, 0, 0.05);
+
+--nav-text: #475569;        /* slate-600 */
+  --nav-text-hover: #0f172a; /* slate-900 */
+
+
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.75);
+
+
+
+
+   --about-title-glow: rgba(37, 99, 235, 0.18);
+  --about-avatar-glow: rgba(37, 99, 235, 0.35);
 }
 /* ============================= */
 /* IDENTIDAD PERSONAL (DEFAULT)  */

@@ -37,7 +37,7 @@
   font-weight: 600;
 
   color: var(--primary);
-  opacity: 0.85;
+    opacity: var(--about-eyebrow-opacity);
 
   background: linear-gradient(
     90deg,
@@ -50,7 +50,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: eyebrow-shimmer 6s ease-in-out infinite;
+   animation: eyebrow-shimmer 10s ease-in-out infinite;
 }
 
 /* ===============================
@@ -64,8 +64,7 @@
 
   color: var(--text-main);
 
-  text-shadow:
-    0 0 0 rgba(56, 189, 248, 0.0);
+   text-shadow: 0 0 12px var(--about-title-glow);
 
   animation: title-breathe 7s ease-in-out infinite;
 }
@@ -197,7 +196,7 @@
   color: var(--text-main);
 
   /* respiración muy sutil */
-  animation: about-title-breathe 8s ease-in-out infinite;
+  /*animation: about-title-breathe 8s ease-in-out infinite;*/
 }
 
 /* ===============================
@@ -672,13 +671,13 @@ transition: all 0.4s ease-in-out;
   /* CAMBIO: Asegura que nada corte el movimiento de las cartas */
   overflow: visible; 
   position: relative;
-  animation: fadeInRight 0.8s ease-out;
+  animation: fadeInRight 0.6s ease-out;
 }
 .about-section-title {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: var(--text-main);
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -1027,18 +1026,19 @@ body.light .card-tags span {
 
 .focus-icon {
   font-size: 1.5rem;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
 }
 
 .focus-content strong {
   display: block;
-  color: #fff;
+  color: var(--text-main);
   font-size: 1rem;
   margin-bottom: 2px;
 }
 
 .focus-content p {
-  color: #94a3b8;
+    color: var(--about-muted);
+
   font-size: 0.85rem;
   margin: 0;
 }

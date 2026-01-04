@@ -12,10 +12,20 @@ import Contact from './components/contact/Contact'
 import { useHideOnScroll } from "./hooks/useHideOnScroll";
 function App() {
    const hideNavbar = useHideOnScroll();
-const { hidden, atTop } = useNavbarScroll();
+
+const [menuOpen, setMenuOpen] = useState(false);
+const { hidden, atTop } = useNavbarScroll({
+  threshold: 12,
+  menuOpen,
+});
   return (
     <>
-      <Navbar hidden={hideNavbar} atTop={atTop} />
+      <Navbar
+  hidden={hidden}
+  atTop={atTop}
+  menuOpen={menuOpen}
+  setMenuOpen={setMenuOpen}
+/>
 
        <Hero />
         <About />

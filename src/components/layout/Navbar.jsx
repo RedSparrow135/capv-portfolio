@@ -4,6 +4,10 @@ import './Navbar.css'
 export default function Navbar({ hidden , atTop }) {
   const [theme, setTheme] = useState('dark')
   const [identity, setIdentity] = useState('personal') // 👈 NUEVO
+  const [menuOpen, setMenuOpen] = useState(false);
+
+const closeMenu = () => setMenuOpen(false);
+
 
   useEffect(() => {
     document.body.classList.toggle('light', theme === 'light')
@@ -38,7 +42,14 @@ const goTo = (id) => {
 };
 
   return (
-    <header className={`navbar ${hidden ? 'navbar-hidden' : ''} ${atTop ? 'navbar-top' : 'navbar-scrolled'}`}>
+<header
+  className={`navbar
+    ${hidden ? "navbar-hidden" : ""}
+    ${atTop || menuOpen ? "navbar-top" : "navbar-scrolled"}
+  `}
+>
+
+
       {/* LOGO */}
       <div className="navbar-left">
         <div className="navbar-logo"  onClick={() => goTo('hero')}>
@@ -87,7 +98,43 @@ const goTo = (id) => {
         <button className="navbar-cta" onClick={() => goTo('contact')}>
           Contactame
         </button>
+
+        <button
+  className="nav-hamburger"
+  aria-label="Abrir menú"
+  onClick={() => setMenuOpen(true)}
+>
+  ☰
+</button>
+
       </div>
+
+      {/* MOBILE MENU */}
+<div className={`nav-mobile ${menuOpen ? 'open' : ''}`}>
+  <div className="nav-mobile-backdrop" onClick={closeMenu} />
+
+  <div className="nav-mobile-panel">
+    <button className="nav-mobile-close" onClick={closeMenu}>
+      ✕
+    </button>
+
+    <nav className="nav-mobile-links">
+      <button onClick={() => { goTo('about'); closeMenu(); }}>
+        Sobre mí
+      </button>
+      <button onClick={() => { goTo('experience'); closeMenu(); }}>
+        Experiencia
+      </button>
+      <button onClick={() => { goTo('projects'); closeMenu(); }}>
+        Proyectos
+      </button>
+      <button onClick={() => { goTo('contact'); closeMenu(); }}>
+        Contacto
+      </button>
+    </nav>
+  </div>
+</div>
+
     </header>
   )
 }

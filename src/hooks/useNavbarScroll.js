@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useNavbarScroll(threshold = 12) {
+export function useNavbarScroll({
+  threshold = 12,
+  menuOpen = false,
+} = {}) {
   const lastScroll = useRef(0);
 
   const [hidden, setHidden] = useState(false);
@@ -8,10 +11,13 @@ export function useNavbarScroll(threshold = 12) {
 
   useEffect(() => {
     const onScroll = () => {
+      // 🔒 SI EL MENÚ ESTÁ ABIERTO → CONGELAR NAVBAR
+      if (menuOpen) return;
+
       const current = window.scrollY;
       const delta = current - lastScroll.current;
 
-      // TOP (hero visible)
+      // top (hero visible)
       setAtTop(current <= 2);
 
       // ignorar micro-scroll
@@ -32,7 +38,7 @@ export function useNavbarScroll(threshold = 12) {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [threshold]);
+  }, [threshold, menuOpen]);
 
   return { hidden, atTop };
 }

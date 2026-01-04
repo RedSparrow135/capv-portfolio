@@ -82,9 +82,11 @@ export default function Hero() {
             </a>
 
           </div>
+          {/* CAROUSEL TECNOLÓGICO */}
+          <div className="hero-tech-wrapper">
+  <HeroTechCarousel />
+</div>
 
-
-           <HeroTechCarousel />
         </div>
 
         {/* DERECHA */}

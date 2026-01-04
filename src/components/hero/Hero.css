@@ -11,7 +11,7 @@
 
   padding: 0.4rem 6%;
   box-sizing: border-box;
-
+ z-index: 1;
   overflow: visible;         /* ❌ antes: hidden */
   background: transparent;
 }
@@ -482,4 +482,109 @@ body:not(.light) .hero-grid {
 
   position: relative;
   z-index: 3; /* 🔥 por encima del AtomicNetwork */
+}
+/* ======================================
+   HERO – MOBILE REWORK
+====================================== */
+@media (max-width: 900px) {
+
+  .hero {
+    padding: 1rem 5% 4rem;
+  }
+
+  /* GRID → 1 COLUMNA */
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  /* =========================
+     TEXTO
+  ========================= */
+  .hero-left {
+    transform: none; /* 🔥 MUY IMPORTANTE */
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 7vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  /* =========================
+     ROLES
+  ========================= */
+  .hero-roles {
+    gap: 0.6rem;
+  }
+
+  .hero-role {
+    font-size: 0.75rem;
+  }
+
+  /* =========================
+     BOTONES
+  ========================= */
+  .hero-actions {
+    transform: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* =========================
+     ATOMIC NETWORK
+  ========================= */
+  .hero-right {
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-right canvas,
+  .hero-right svg {
+    transform: scale(1.2);
+  }
+  .hero-tech-wrapper {
+  margin-top: 4.8rem;
+}
+
+}
+
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding-top: 5.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-role img {
+    width: 16px;
+    height: 16px;
+  }
 }

@@ -1,9 +1,10 @@
 /* ===============================
    ABOUT SECTION
-   =============================== */
+   =============================== 
+*/
 
 .about {
-  padding: 4rem 6%;
+  padding-inline: clamp(4rem,6%);
   background: var(--bg-main);
   color: var(--text-main);
   overflow: visible; /* Asegura que las cartas no se corten aquí */
@@ -12,7 +13,8 @@
 }
 /* ===============================
    HEADER
-   =============================== */
+   =============================== 
+*/
 /* ===============================
    ABOUT HEADER – PRO ANIMADO
    =============================== */

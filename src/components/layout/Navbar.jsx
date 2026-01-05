@@ -1,10 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+
 import './Navbar.css'
+
+import { useNavbarLayout } from "../../hooks/useNavbarLayout";
 
 export default function Navbar({ hidden , atTop }) {
   const [theme, setTheme] = useState('dark')
   const [identity, setIdentity] = useState('personal') // 👈 NUEVO
   const [menuOpen, setMenuOpen] = useState(false);
+const navbarRef = useRef(null);
+const linksRef = useRef(null);
+const actionsRef = useRef(null);
+
+const isCompact = useNavbarLayout({
+  containerRef: navbarRef,
+  linksRef,
+  actionsRef,
+});
+
 
 const closeMenu = () => setMenuOpen(false);
 
@@ -43,8 +56,9 @@ const goTo = (id) => {
 
   return (
 <header
+  ref={navbarRef}
   className={`navbar
-    ${hidden ? "navbar-hidden" : ""}
+    ${hidden && !menuOpen ? "navbar-hidden" : ""}
     ${atTop || menuOpen ? "navbar-top" : "navbar-scrolled"}
   `}
 >
@@ -68,14 +82,19 @@ const goTo = (id) => {
       </div>
 
       {/* LINKS */}
-      <nav className="navbar-links">
+      <nav
+  ref={linksRef}
+  className={`navbar-links ${isCompact ? "is-hidden" : ""}`}
+>
+
         <button onClick={() => goTo('about')}>Sobre mí</button>
         <button onClick={() => goTo('experience')}>Experiencia</button>
         <button onClick={() => goTo('projects')}>Proyectos</button>
       </nav>
 
       {/* ACTIONS */}
-      <div className="navbar-actions">
+      <div className="navbar-actions" ref={actionsRef}>
+
         {/* MODO DEV */}
        { /*<button
           className={`identity-toggle ${
@@ -99,13 +118,16 @@ const goTo = (id) => {
           Contactame
         </button>
 
-        <button
-  className="nav-hamburger"
-  aria-label="Abrir menú"
-  onClick={() => setMenuOpen(true)}
->
-  ☰
-</button>
+        {isCompact && (
+  <button
+    className="nav-hamburger"
+    aria-label="Abrir menú"
+    onClick={() => setMenuOpen(true)}
+  >
+    ☰
+  </button>
+)}
+
 
       </div>
 
@@ -137,4 +159,5 @@ const goTo = (id) => {
 
     </header>
   )
+  
 }

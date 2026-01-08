@@ -36,6 +36,20 @@ const closeMenu = () => setMenuOpen(false);
     )
   }, [theme, identity])
 
+
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [menuOpen]);
+
+
   const toggleTheme = () => {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
   }
@@ -56,12 +70,13 @@ const goTo = (id) => {
 
   return (
 <header
-  ref={navbarRef}
   className={`navbar
+    ${menuOpen ? "navbar-disabled" : ""}
     ${hidden && !menuOpen ? "navbar-hidden" : ""}
-    ${atTop || menuOpen ? "navbar-top" : "navbar-scrolled"}
+    ${atTop && !menuOpen ? "navbar-top" : "navbar-scrolled"}
   `}
 >
+
 
 
       {/* LOGO */}

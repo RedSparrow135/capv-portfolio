@@ -115,7 +115,7 @@ export default function About() {
             </button>
             <a
               className="about-cv"
-              href="/cv/CV-2025-Carlos Alonso Picho Vargas (11_2025) -1.pdf"
+              href="/cv/CV-2025-Carlos Alonso Picho Vargas.pdf"
               target="_blank"
             >
               Ver CV en PDF

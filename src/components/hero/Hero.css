@@ -549,19 +549,30 @@ body:not(.light) .hero-grid {
      ATOMIC NETWORK
   ========================= */
   .hero-right {
-    position: absolute;
-    inset: 0;
-    opacity: 0.12;
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden; /* 🔥 ESTO ES LO MÁS IMPORTANTE */
+}
+
 
   .hero-right canvas,
-  .hero-right svg {
-    transform: scale(1.2);
-  }
+.hero-right svg {
+  width: min(420px, 70vw);
+  height: auto;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  transform: none; /* ❌ quitamos scale */
+}
+
   .hero-tech-wrapper {
   margin-top: 4.8rem;
 }
